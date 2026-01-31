@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+// API URL - use environment variable or fallback to relative path
+const API_URL = import.meta.env.VITE_API_URL || ''
+
 // Types
 interface QueryResult {
   data: Record<string, unknown>[]
@@ -41,7 +44,7 @@ function App() {
     setResponse(null)
 
     try {
-      const res = await fetch('/api/query', {
+      const res = await fetch(`${API_URL}/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: query }),
