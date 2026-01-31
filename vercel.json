@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ],
+  "env": {
+    "OPENAI_API_KEY": "@openai-api-key",
+    "CLICKHOUSE_HOST": "@clickhouse-host",
+    "CLICKHOUSE_PORT": "@clickhouse-port",
+    "CLICKHOUSE_USER": "@clickhouse-user",
+    "CLICKHOUSE_PASSWORD": "@clickhouse-password",
+    "CLICKHOUSE_DATABASE": "@clickhouse-database"
+  }
+}

@@ -1,0 +1,24 @@
+# CFG Eval Analytics Engine - Dependencies
+
+# API Framework
+fastapi>=0.109.0
+uvicorn>=0.27.0
+
+# OpenAI SDK (GPT-5 support)
+openai>=1.99.0
+
+# ClickHouse Client
+clickhouse-connect>=0.7.0
+
+# Grammar parsing (for local validation/testing)
+lark>=1.1.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# Request validation
+pydantic>=2.0.0
+
+# Testing
+pytest>=8.0.0
+requests>=2.31.0
